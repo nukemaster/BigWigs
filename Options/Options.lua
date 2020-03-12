@@ -433,6 +433,7 @@ local function advancedToggles(dbKey, module, check)
 		advancedOptions[7] = getSlaveToggle(L.BAR, L.BAR_desc, dbKey, module, C.BAR, check)
 		advancedOptions[8] = getSlaveToggle(L.CASTBAR, L.CASTBAR_desc, dbKey, module, C.CASTBAR, check)
 		--
+		advancedOptions[9] = getSlaveToggle("Emphasize Bar", "Set if this bar could be emphasized", dbKey, module, C.EMPHASIZE_BAR, check)
 	end
 
 	if bit.band(dbv, C.NAMEPLATEBAR) == C.NAMEPLATEBAR and hasOptionFlag(dbKey, module, "NAMEPLATEBAR") then

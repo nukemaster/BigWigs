@@ -1956,6 +1956,8 @@ end
 -- Start bars
 --
 
+local C = BigWigs.C
+
 function plugin:CreateBar(module, key, text, time, icon, isApprox, unitGUID)
 	local width, height
 	if unitGUID then
@@ -1974,6 +1976,17 @@ function plugin:CreateBar(module, key, text, time, icon, isApprox, unitGUID)
 	bar.candyBarBackground:SetVertexColor(colors:GetColor("barBackground", module, key))
 	bar:Set("bigwigs:module", module)
 	bar:Set("bigwigs:option", key)
+	
+	for k,value in pairs(module.db.profile) do
+		if k == key then
+			local tmp = bit.band(module.db.profile[key], C.EMPHASIZE_BAR)
+			if tmp == C.EMPHASIZE_BAR then 
+				bar:Set("bigwigs:emphasizeBar", true)
+			else 
+				bar:Set("bigwigs:emphasizeBar", false)
+			end
+		end
+	end 	
 	if unitGUID then
 		bar:Set("bigwigs:unitGUID", unitGUID)
 	else
@@ -2085,7 +2098,7 @@ do
 	nameplateEmpUpdate = frame:CreateAnimationGroup()
 	empUpdate:SetScript("OnLoop", function()
 		for k in next, normalAnchor.bars do
-			if k.remaining < db.emphasizeTime and not k:Get("bigwigs:emphasized") then
+			if k.remaining < db.emphasizeTime and not k:Get("bigwigs:emphasized") and k:Get("bigwigs:emphasizeBar") then
 				dirty = true
 				plugin:EmphasizeBar(k)
 				plugin:SendMessage("BigWigs_BarEmphasized", plugin, k)
