@@ -29,11 +29,10 @@ jobs:
 
     - run: |
         mkdir vendor-zip
-        cp -r ./Core/Core.lua ./vendor-zip/BigWigs_Core/Core.lua
-        cp -r ./Core/Constants.lua ./vendor-zip/BigWigs_Core/Constants.lua
-        cp -r ./Options/Options.lua ./vendor-zip/BigWigs_Options/Options.lua
-        cp -r ./Plugins/Bars.lua ./vendor-zip/BigWigs_Plugins/Bars.lua
-
+        cp -r ./Core/Core.lua ./vendor-zip/BigWigs_Core/
+        cp -r ./Core/Constants.lua ./vendor-zip/BigWigs_Core/
+        cp -r ./Options/Options.lua ./vendor-zip/BigWigs_Options/
+        cp -r ./Plugins/Bars.lua ./vendor-zip/BigWigs_Plugins/
         
     
     
