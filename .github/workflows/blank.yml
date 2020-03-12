@@ -27,13 +27,18 @@ jobs:
       run: echo Hello, world!
 
 
-    - run: mkdir vendor-zip
-    #- uses: montudor/action-zip@v0.1.0
-    #  with:
-    #    args: zip -qq -r ./vendor-zip/vendor.zip . -i ./core
-    - name: ZipFolder
-      run: zip -r ./vendor-zip/vendor.zip .
+    - run: |
+        mkdir vendor-zip
+        cp -R ./Core ./vendor-zip/BigWigs_Core
+    
+    
+    #- name: ZipFolder
+    #  run: zip -r ./vendor-zip/vendor.zip .
+    
     - uses: actions/upload-artifact@master
       with:
         name: vendor
         path: vendor-zip
+        
+    - name: Clean
+      run: rm -Rf ./vendor-zip
