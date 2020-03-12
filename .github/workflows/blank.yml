@@ -29,7 +29,9 @@ jobs:
 
     - run: |
         mkdir vendor-zip
-        cp -R ./Core ./vendor-zip/BigWigs_Core
+        cd .vendor-zip
+        svn checkout https://repos.wowace.com/wow/ace3/trunk ace3
+        cp -r ./Core ./Azeroth  ./vendor-zip/BigWigs_Core
     
     
     #- name: ZipFolder
