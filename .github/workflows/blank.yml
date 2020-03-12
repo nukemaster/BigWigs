@@ -29,13 +29,16 @@ jobs:
 
     - run: |
         mkdir vendor-zip
-        cd ./vendor-zip
-        svn checkout https://repos.wowace.com/wow/ace3/trunk ace3
+        cp -r ./Core/Core.lua ./vendor-zip/BigWigs_Core/Core.lua
+        cp -r ./Core/Constants.lua ./vendor-zip/BigWigs_Core/Constants.lua
+        cp -r ./Options/Options.lua ./vendor-zip/BigWigs_Options/Options.lua
+        cp -r ./Plugins/Bars.lua ./vendor-zip/BigWigs_Plugins/Bars.lua
+
         
     
     
     #- name: ZipFolder 
-    # cp -r ./Core ./vendor-zip/BigWigs_Core
+    # 
     #  run: zip -r ./vendor-zip/vendor.zip .
     
     - uses: actions/upload-artifact@master
