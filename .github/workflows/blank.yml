@@ -29,6 +29,9 @@ jobs:
 
     - run: |
         mkdir vendor-zip
+        mkdir vendor-zip/BigWigs_Core
+        mkdir vendor-zip/BigWigs_Options
+        mkdir vendor-zip/BigWigs_Plugins
         cp -r ./Core/Core.lua ./vendor-zip/BigWigs_Core/
         cp -r ./Core/Constants.lua ./vendor-zip/BigWigs_Core/
         cp -r ./Options/Options.lua ./vendor-zip/BigWigs_Options/
